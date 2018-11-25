@@ -1,0 +1,38 @@
+package LinkedList;
+
+public class LinkedList {
+	static Node head;
+	
+	static class Node{
+		int data;
+		Node next;
+		
+		Node(int d){
+			data=d;
+			next=null;
+		}
+	}
+	
+	void remove_duplicates() {
+		
+	}
+	
+	void printList(Node node) {
+		while(node != null) {
+			System.out.println(node.data + " ");
+			node = node.next;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList list = new LinkedList();
+		list.head=new Node(10);
+		list.head.next=new Node(10);
+		list.head.next.next=new Node(10);
+		list.head.next.next.next=new Node(10);
+		System.out.println("LinkedList before removal");
+		list.printList(head);
+
+	}
+
+}

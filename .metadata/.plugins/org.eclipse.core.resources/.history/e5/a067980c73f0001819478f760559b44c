@@ -1,0 +1,95 @@
+package LinkedList;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import LinkedList.Partition.Node;
+
+public class Intersection {
+	Intersection(){
+		head = null;
+	}
+	static Node head;
+	static class Node{
+		int data;
+		Node next;
+		
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	public Node addAtEnd(int data){
+		Node n = new Node(data);
+		
+		if (head==null){
+			n.next = head;
+			head = n;
+		}
+		else{
+			Node currNode = head;
+			while(currNode.next!=null){
+				//System.out.print("---->" + currNode.data);
+				currNode = currNode.next;
+			}
+			currNode.next = n;
+		}
+		return n;
+	}
+	public Node intersecting(Node l1, Node l2) {
+		Set<Node> seen = new HashSet<>();
+		Node pa = l1;
+		while(pa != null) {
+			seen.add(pa);
+			pa = pa.next;
+		}
+		Node pb = l2;
+		while(pb != null) {
+			if(seen.contains(pb)) {
+				return pb;
+			}
+		}
+		return null;
+	}
+	public void display(){
+		System.out.println("");
+		Node currNode = head;
+		while(currNode!=null){
+			System.out.print("->" + currNode.data);
+			currNode=currNode.next;
+		}
+		System.out.println("");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Intersection list1 = new Intersection();
+		
+		
+		list1.addAtEnd(1);
+		list1.addAtEnd(2);
+		list1.addAtEnd(3);
+		list1.addAtEnd(4);
+		list1.addAtEnd(5);
+		
+		
+		Intersection list2 = new Intersection();
+		
+		list2.addAtEnd(9);
+		list2.addAtEnd(8);
+		list2.addAtEnd(7);
+		list2.addAtEnd(6);
+		list2.addAtEnd(5);
+		
+		Intersection list = new Intersection();
+		//Node value = list.intersecting(list1.head, list2.head);
+		list1.display();
+		list2.display();
+		//System.out.println(value.data);
+		
+		//System.out.println(value.data);
+		
+	}
+
+}

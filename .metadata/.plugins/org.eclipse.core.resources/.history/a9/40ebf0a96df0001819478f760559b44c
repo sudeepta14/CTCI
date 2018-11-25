@@ -1,0 +1,39 @@
+package LinkedList;
+
+public class Intersection {
+	static Node head;
+	static class Node{
+		int data;
+		Node next;
+		
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	public Node intersecting(Node l1, Node l2) {
+		return l1;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Intersection list1 = new Intersection();
+		list1.head = new Node(1);
+		list1.head.next = new Node(2);
+		list1.head.next.next = new Node(3);
+		list1.head.next.next.next = new Node(4);
+		list1.head.next.next.next.next = new Node(5);
+		
+		Intersection list2 = new Intersection();
+		list2.head = new Node(9);
+		list2.head.next = new Node(8);
+		list2.head.next.next = new Node(7);
+		list2.head.next.next.next = new Node(6);
+		list2.head.next.next.next.next = new Node(5);
+		
+		Intersection list = new Intersection();
+		list.intersecting
+		
+	}
+
+}

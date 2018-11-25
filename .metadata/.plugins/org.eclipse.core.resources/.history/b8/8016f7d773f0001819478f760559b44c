@@ -1,0 +1,100 @@
+package LinkedList;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import LinkedList.Partition.Node;
+
+public class Intersection {
+	Intersection(){
+		head = null;
+	}
+	static Node head;
+	static class Node{
+		int data;
+		Node next;
+		
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	public Node addAtEnd(int data){
+		Node n = new Node(data);
+		
+		if (head==null){
+			n.next = head;
+			head = n;
+		}
+		else{
+			Node currNode = head;
+			while(currNode.next!=null){
+				//System.out.print("---->" + currNode.data);
+				currNode = currNode.next;
+			}
+			currNode.next = n;
+		}
+		return n;
+	}
+	public Node intersecting(Node l1, Node l2) {
+		Set<Node> seen = new HashSet<>();
+		Node pa = l1;
+		while(pa != null) {
+			seen.add(pa);
+			pa = pa.next;
+		}
+		Node pb = l2;
+		while(pb != null) {
+			if(seen.contains(pb)) {
+				return pb;
+			}
+		}
+		return null;
+	}
+	public void display(){
+		System.out.println("");
+		Node currNode = head;
+		while(currNode!=null){
+			System.out.print("->" + currNode.data);
+			currNode=currNode.next;
+		}
+		System.out.println("");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		public Intersection a;
+		public Intersection b;
+		a = new Intersection();
+		a.addAtEnd(1);
+		a.addAtEnd(10);
+		a.addAtEnd(20);
+		Node tmp = a.addAtEnd(30);
+		a.addAtEnd(40);
+		a.addAtEnd(50);
+		a.addAtEnd(60);
+		System.out.print("List A : ");
+			a.display();
+		
+		
+		b.addAtEnd(9);
+		b.addAtEnd(8);
+		b.addAtEnd(7);
+		b.addAtEnd(6);
+		b.addAtEnd(10);
+		b.display();
+		
+		Intersection list = new Intersection();
+		
+		
+		
+		
+		
+		//System.out.println(value.data);
+		
+	}
+
+}

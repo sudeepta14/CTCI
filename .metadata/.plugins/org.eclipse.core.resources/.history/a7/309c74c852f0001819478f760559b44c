@@ -1,0 +1,82 @@
+package LinkedList;
+
+public class LinkedList {
+	static Node head;
+	
+	static class Node{
+		int data;
+		Node next;
+		
+		Node(int d){
+			data=d;
+			next=null;
+		}
+	}
+	void  printKthtoLast(int k) {
+		Node main_ptr = head;
+		Node ref_ptr = head;
+		int count = 0;
+		if(head != null) {
+			while(count < k) {
+				if(ref_ptr == null) {
+					System.out.println(n + "is greater than the no" + "of nodes in the list");
+					return;
+				}
+				ref_ptr = ref_ptr.next;
+				count++;
+			}
+			while(ref_ptr != null) {
+				main_ptr = main_ptr.next;
+				ref_ptr = ref_ptr.next;
+			}
+			System.out.println("Node no." +k+ "from last is " + main_ptr.data);
+		}
+		
+		
+		
+	}
+	void remove_duplicates() {
+		Node ptr1 = null, ptr2 = null, dup = null;
+		ptr1 = head;
+		
+		while(ptr1 != null && ptr1.next != null) {
+			ptr2 = ptr1;
+			while(ptr2.next != null) {
+				if(ptr1.data == ptr2.next.data) {
+					dup = ptr2.next;
+					ptr2.next = ptr2.next.next;
+					System.gc();
+				}else {
+					ptr2 = ptr2.next;
+				}
+			}
+			ptr1 = ptr1.next;
+		}
+	}
+	
+	
+	
+	void printList(Node node) {
+		while(node != null) {
+			System.out.println(node.data + " ");
+			node = node.next;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList list = new LinkedList();
+		list.head=new Node(20);
+		list.head.next=new Node(4);
+		list.head.next.next=new Node(15);
+		list.head.next.next.next=new Node(35);
+		//System.out.println("LinkedList before removal");
+		//list.printList(head);
+		
+		int k = 2;
+		//list.remove_duplicates();
+		list.printKthtoLast(k);
+		
+
+	}
+
+}
